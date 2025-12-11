@@ -17,7 +17,7 @@ Files - main.tf -- VPC, Subnets, NAT, EC2 - provider.tf -- AWS provider
 config - variables.tf -- Input variables - terraform.tfvars --
 Deployment values - outputs.tf -- Output values - README.md - Diagram
 
-Deploy terraform init terraform plan terraform apply
+Deploy-*terraform init *terraform plan *terraform apply
 
 Highlights - AWS VPC networking - Public and private subnet design - NAT
 Gateway outbound internet - Terraform variables + tagging - Real DevOps
