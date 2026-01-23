@@ -40,7 +40,6 @@ resource "aws_subnet" "private" {
 # NAT: single NAT in first public subnet (cheapest)
 resource "aws_eip" "nat" {
   count = var.create_nat ? 1 : 0
-  vpc   = true
 }
 
 resource "aws_nat_gateway" "nat" {
