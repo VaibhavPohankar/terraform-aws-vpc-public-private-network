@@ -83,3 +83,8 @@ resource "aws_route_table_association" "private_assoc" {
   subnet_id      = each.value.id
   route_table_id = aws_route_table.private.id
 }
+
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.this.id
+  tags   = merge(var.tags, { Name = "${var.name_prefix}-default-sg-DO-NOT-USE" })
+}
