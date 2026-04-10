@@ -45,7 +45,7 @@ resource "aws_eip" "nat" {
 resource "aws_nat_gateway" "nat" {
   count         = var.create_nat ? 1 : 0
   allocation_id = aws_eip.nat[0].id
-  subnet_id     = values(aws_subnet.public)[0].id
+  subnet_id     = aws_subnet.public["0"].id
   tags          = merge(var.tags, { Name = "${var.name_prefix}-nat" })
 }
 
