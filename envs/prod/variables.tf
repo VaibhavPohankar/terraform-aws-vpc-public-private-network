@@ -1,20 +1,34 @@
-variable "region" {}
-variable "name_prefix" {}
-variable "vpc_cidr" {}
+variable "region" {
+  type        = string
+  description = "AWS region to deploy resources in"
+}
+variable "name_prefix" {
+  type        = string
+  description = "Prefix used for naming all resources"
+}
+variable "vpc_cidr" {
+  type        = string
+  description = "CIDR block for the VPC e.g. 10.0.0.0/16"
+}
 variable "azs" {
-  type = list(string)
+  type        = list(string)
+  description = "List of availability zones to deploy subnets in"
 }
 variable "public_subnets" {
-  type = map(string)
+  type        = map(string)
+  description = "Map of public subnet CIDRs keyed by index"
 }
 variable "private_subnets" {
-  type = map(string)
+  type        = map(string)
+  description = "Map of private subnet CIDRs keyed by index"
 }
 variable "create_nat" {
-  default = true
+  type        = bool
+  default     = true
+  description = "Whether to create a NAT gateway for private subnets"
 }
 variable "tags" {
-  type    = map(string)
-  default = {}
+  type        = map(string)
+  default     = {}
+  description = "Common tags applied to all resources"
 }
-
